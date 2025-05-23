@@ -34,37 +34,5 @@ public class GreetingController {
     public Greeting deleteGreeting() {
         return greetingService.getGreetingMessage("delete");
     }
-
-    @GetMapping("/custom")
-    public Greeting getCustomGreeting(@RequestParam(required = false) String firstName,
-                                      @RequestParam(required = false) String lastName) {
-        return greetingService.getPersonalizedGreeting(firstName, lastName);
-    }
-
-    @PostMapping("/save")
-    public Greeting saveGreeting(@RequestBody Greeting greeting) {
-        return greetingService.save(greeting);
-    }
-
-
-    @GetMapping("/{id}")
-    public Greeting getGreetingById(@PathVariable long id) {
-        return greetingService.findById(id);
-    }
-
-    @GetMapping("/all")
-    public List<Greeting> getAllGreetings() {
-        return greetingService.findAll();
-    }
-
-    @PutMapping("/{id}")
-    public Greeting updateGreeting(@PathVariable long id, @RequestBody Greeting greeting) {
-        return greetingService.update(id, greeting);
-    }
-
-    @DeleteMapping("/{id}")
-    public String deleteGreeting(@PathVariable long id) {
-        greetingService.deleteById(id);
-        return "Greeting with ID " + id + " has been deleted.";
-    }
+    
 }
