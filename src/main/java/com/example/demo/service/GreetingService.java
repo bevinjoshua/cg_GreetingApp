@@ -55,6 +55,11 @@ public class GreetingService {
                 .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Greeting not found"));
     }
 
+
+    public List<Greeting> findAll() {
+        return greetingRepository.findAll();
+    }
+
 }
 
    

@@ -50,4 +50,9 @@ public class GreetingController {
     public Greeting getGreetingById(@PathVariable long id) {
         return greetingService.findById(id);
     }
+    
+    @GetMapping("/all")
+    public List<Greeting> getAllGreetings() {
+        return greetingService.findAll();
+    }
 }
