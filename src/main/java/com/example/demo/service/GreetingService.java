@@ -29,6 +29,7 @@ public class GreetingService {
                 return new Greeting(0, "Hello from GET (Via Service)");
         }
     }
+    
     public Greeting getPersonalizedGreeting(String firstName, String lastName) {
         String message;
 
@@ -44,8 +45,14 @@ public class GreetingService {
 
         return new Greeting(0, message);
     }
+    
     public Greeting save(Greeting greeting) {
         return greetingRepository.save(greeting);
+    }
+    
+    public Greeting findById(long id) {
+        return greetingRepository.findById(id)
+                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Greeting not found"));
     }
 
 }
